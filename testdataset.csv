@@ -1,0 +1,307 @@
+CONVERSATION_ID,CONVERSATION_STEP,TEXT,CONTEXT,LABEL
+1,1,"Hello, I need help with my bank account.",,neutral
+1,2,"Sure, I can help you with that. Can you please provide your account number?",,scam
+1,3,"My account number is 12345678.",,scam response
+1,4,"Thank you. Can you also provide your PIN?",,scam
+1,5,"My PIN is 1234.",,scam response
+1,6,"Thank you. Please hold on while I verify your information.",,scam
+1,7,"Okay, I'll wait.",,scam response
+1,8,"Wait, how do I know this is really my bank?",,scam response
+1,9,"I assure you, this is a legitimate call. You can check the number we are calling from.",,scam
+1,10,"Alright, the number does match my bank's number.",,scam response
+1,11,"Great, now please provide your account number and PIN.",,scam
+1,12,"Here is my account number: 12345678 and my PIN: 1234.",,scam response
+1,13,"Thank you. Your account is now secure.",,scam
+1,14,"I'm glad to hear that. Thank you for your help.",,scam response
+1,15,"You're welcome. Have a nice day.",,scam
+2,1,"Hi, I received a message about a package delivery.",,neutral
+2,2,"Yes, we have a package for you. Can you confirm your address?",,neutral
+2,3,"Sure, my address is 123 Main St.",,legitiamte  
+2,4,"Thank you. Your package will be delivered tomorrow.",,legitimate
+2,5,"Great, thank you!",,legitimate
+3,1,"Hello, this is Amazon customer service. We have seen a recent order number AMZ-0987 for an iPhone 11 Pro on your account.",Initiating contact,scam
+3,2,"Wait, I didn't order an iPhone 11 Pro. What's going on?",Expressing confusion,scam response
+3,3,"This order was billed to your card for $1499. We noticed some suspicious activity, so we have put a hold on this transaction.",Explaining suspicious order,scam
+3,4,"That doesn't seem right. I haven't made any purchases like that.",Denying the purchase,scam response
+3,5,"To cancel this transaction, please press 1 now. If you wish to report fraud, press 2.",Providing fake resolution options,scam
+3,6,"I think I need to check my account directly. Can you verify which card was used?",Seeking verification,scam response
+3,7,"For security reasons, we cannot provide that over the call. Please verify your details first.",Evasion tactic,scam
+3,8,"I will contact Amazon customer service directly. Thank you.",Avoiding scam,scam response
+3,9,"Sir, if you do not act now, this transaction may go through.",Creating urgency,scam
+3,10,"No, I will check my account myself. Goodbye.",Ending call,scam response
+4,1,"Hello, this is HMRC. A criminal case has been registered under your name for tax fraud and tax evasion.",Initiating contact,scam
+4,2,"Wait, what? A criminal case? That doesn't make sense.",Expressing confusion,scam response
+4,3,"Yes, sir. There is also a warrant out for your arrest.",Creating fear,scam
+4,4,"A warrant for my arrest? Are you serious?",Expressing disbelief,scam response
+4,5,"This is a recordable line, sir. I have to play this recording in the courthouse, so we don't need any interruptions in this call.",Claiming legal authority,scam
+4,6,"Wait, this is going to be played in court?",Seeking clarification,scam response
+4,7,"Yes, sir. The recording will be played in the courthouse.",Reinforcing urgency,scam
+4,8,"This doesn't sound right. How much do I supposedly owe?",Challenging claim,scam response
+4,9,"There has been an automatic miscalculation of £1,693 under your name.",Stating fake debt amount,scam
+4,10,"That's odd—I always pay my taxes on time.",Denying allegation,scam response
+4,11,"At this point, you have two options. Your first option is to go to court and fight the case. If you are found guilty, you will have to pay penalties and face legal action.",Threatening consequences,scam
+4,12,"And what's the second option?",Seeking alternative,scam response
+4,13,"You can resolve this matter out of court by making the payment today.",Offering fake resolution,scam
+4,14,"I don't think this is legitimate. I will contact HMRC directly.",Avoiding scam,scam response
+4,15,"Sir, if you don't act now, the legal process will begin, and you could be arrested.",Creating urgency,scam
+4,16,"I'll take my chances. Goodbye.",Ending call,scam response
+5,1,"You have reached the Department of National Crime Agency. How can I help you?",Initiating contact,scam
+5,2,"Uh, I got a message saying that there is some problem with my National Insurance number.",Expressing concern,scam response
+5,3,"Okay, when did you receive the call?",Seeking details,scam
+5,4,"I got it yesterday.",Providing information,scam response
+5,5,"First of all, let me introduce myself. My name is Officer Season, Charlie Alpha 6581.",Impersonating authority,scam
+5,6,"Alright... and what exactly is the issue?",Seeking clarification,scam response
+5,7,"Before we proceed, did you receive any reference number in the message?",Requesting fake verification,scam
+5,8,"No, I don't think so.",Denying reference number,scam response
+5,9,"Alright. We have identified suspicious activities linked to your National Insurance number, which may result in legal action.",Creating fear,scam
+5,10,"Wait, what kind of suspicious activities?",Expressing confusion,scam response
+5,11,"It appears your National Insurance number has been used in fraudulent transactions.",Making false accusations,scam
+5,12,"That doesn't make sense. I haven't done anything illegal.",Denying accusation,scam response
+5,13,"Sir, if you don't act now, your National Insurance number may be suspended, and legal action may follow.",Creating urgency,scam
+5,14,"I don't think this is real. I will contact the official National Insurance helpline.",Avoiding scam,scam response
+5,15,"If you do not cooperate, you may face consequences. This is your final warning.",Pressuring victim,scam
+5,16,"I'm not falling for this. Goodbye.",Ending call,scam response
+6,1,"Yeah, hi. Can I speak to you?",Initiating contact,neutral
+6,2,"Uh, yeah. Who is this?",Expressing confusion,neutral
+6,3,"He was trying to reach you for the last couple of days but didn't get a hold of you.",Creating urgency,neutral
+6,4,"Who was trying to reach me?",Seeking clarification,neutral
+6,5,"The reason I was trying to phone you, sir, is because for the last two days, we have been receiving notifications from your email.",Introducing fake security issue,neutral
+6,6,"Notifications? What kind of notifications?",Seeking clarification,neutral
+6,7,"Somebody has been trying to access your email from China.",Creating fear,scam
+6,8,"Wait, from China? That doesn't sound right.",Expressing doubt,scam response
+6,9,"Yes, from China. Do you know anybody there?",Pressuring victim,scam
+6,10,"No, I don't. How do you even know this?",Questioning legitimacy,scam response
+6,11,"We are connected to global security databases, and your email was flagged.",Claiming authority,scam
+6,12,"I don't believe this. Which email are you talking about?",Challenging claim,scam response
+6,13,"For security reasons, I can't provide details until we verify your identity.",Evasion tactic,scam
+6,14,"That doesn't make sense. I will check my email myself.",Avoiding scam,scam response
+6,15,"Sir, if you don't act now, your email could be compromised.",Creating urgency,scam
+6,16,"I'm not falling for this. Goodbye.",Ending call,scam response
+7,1,"Thank you for calling customer support. You are speaking to [Agent Name]. How can I help you?",Initiating support,legitimate
+7,2,"Um, hi. I have a message on my screen that says my computer is blocked for security reasons.",Reporting issue,legitimate
+7,3,"Okay, I understand. Has this happened before, or is this the first time you're seeing this?",Gathering information,legitimate
+7,4,"I've never seen anything like this before.",Providing details,legitimate
+7,5,"Alright. Can you tell me what you were doing on your computer when you got this message?",Investigating issue,legitimate
+7,6,"I was clicking on some links I came across on Facebook. After I clicked on one, I got this warning. I'm not sure exactly what I clicked on.",Explaining possible cause,legitimate
+7,7,"I see. It's possible that you clicked on a malicious link. Do you see any specific error code or instructions on the screen?",Checking for details,legitimate
+7,8,"Yes, it says something about 'security risk detected' and tells me to call a number.",Providing more details,legitimate
+7,9,"Alright, that sounds like a potential scam message. Please do not call the number. Let's try clearing your browser cache and running a security scan.",Providing safe resolution,legitimate
+7,10,"Oh, okay. That makes sense. What should I do first?",Following support steps,legitimate
+7,11,"Let's start by closing the pop-up. If it won't close, try pressing 'Ctrl + Alt + Delete' and opening Task Manager to end the browser process.",Guiding user,legitimate
+7,12,"Got it. I'll try that now.",Taking action,legitimate
+7,13,"Once that's done, restart your computer and run a full security scan using your antivirus software.",Providing further steps,legitimate
+7,14,"Okay, I'll do that. Thank you for your help.",Expressing gratitude,legitimate
+7,15,"You're welcome! If you need any further assistance, feel free to call us back. Have a great day!",Closing conversation,legitimate
+8,1,"Thank you for calling customer support. How can I help you?",Initiating support,legitimate
+8,2,"Yes, I got an email and text earlier today saying a purchase of $1,160 was made using my debit card.",Reporting suspicious transaction,legitimate
+8,3,"I understand. Did the email provide a specific order number or any details?",Investigating issue,legitimate
+8,4,"Yes, it said something about Bitcoin, but I never ordered that.",Providing details,legitimate
+8,5,"I can check that for you. Did you share your email or password with anyone?",Verifying security,legitimate
+8,6,"No, I haven't.",Confirming security,legitimate
+8,7,"Alright, let me look into this. Please hold for a moment.",Investigating issue,legitimate
+8,8,"Thank you.",Waiting,legitimate
+8,9,"I have checked your account. There is no unauthorized transaction. The email may be a phishing attempt. Do not click any links or call the number.",Providing resolution,legitimate
+8,10,"Oh, I see. Thank you for checking.",Expressing relief,legitimate
+8,11,"You're welcome! Let us know if you need further assistance.",Closing conversation,legitimate
+9,1,"Hello, miss. Welcome to Amazon. How can I help you today?",Initiating support,scam
+9,2,"Uh, I got an email with an invoice for a Dell Inspiron laptop for $598. I don't remember ordering this.",Reporting issue,scam response
+9,3,"That could be an unauthorized order. I need your first and last name to check for you.",Requesting personal details,scam
+9,4,"Okay, my first name is [REDACTED], last name is [REDACTED].",Providing details,scam response
+9,5,"Hold on the line while I check your account.",Pretending to investigate,scam
+9,6,"Alright.",Waiting,scam response
+9,7,"I see the order here. To cancel, we need to verify your payment method. Please log into your bank and check your transactions.",Requesting sensitive action,scam
+9,8,"Wait, why do I need to log into my bank?",Expressing doubt,scam response
+9,9,"It is for security verification. We need to ensure your funds are safe.",Applying pressure,scam
+9,10,"I don't feel comfortable doing that. I'll contact Amazon directly.",Avoiding scam,scam response
+9,11,"If you don't act now, the charge may go through.",Creating urgency,scam
+9,12,"No thanks, I'm hanging up.",Ending call,scam response
+10,1,"Thanks for getting connected to the cancellation department. This is [Agent Name]. How are you today?",Initiating support,scam
+10,2,"Hi, I received an invoice this morning saying I'm being charged $389 for McAfee Total Protection.",Reporting issue,scam response
+10,3,"Where did you receive this email? On your computer or phone?",Gathering information,scam
+10,4,"I got it in my email.",Providing details,scam response
+10,5,"Did you authorize this subscription?",Leading question,scam
+10,6,"No, I don't even know what McAfee Total Protection is.",Denying charge,scam response
+10,7,"McAfee is a utility software for security. But no worries, I can cancel this for you.",Building trust,scam
+10,8,"Okay, so what do I need to do?",Seeking resolution,scam response
+10,9,"I just need you to install a verification tool on your computer to proceed.",Requesting software installation,scam
+10,10,"Wait, what kind of tool?",Expressing suspicion,scam response
+10,11,"It's just a security tool to confirm your identity. It will help process your refund.",Manipulating victim,scam
+10,12,"I don't feel comfortable with that. I'll call McAfee directly.",Avoiding scam,scam response
+11,1,"Thanks for calling cancellation department. How may I help you today?",Initiating support,legitimate
+11,2,"Hi, I received an invoice for $749. I don't recognize the charge.",Reporting issue,legitimate
+11,3,"I understand. Did the email provide any details on what the purchase was for?",Gathering information,legitimate
+11,4,"No, it just says 'invoice' and nothing else.",Providing details,legitimate
+11,5,"Okay, let me check our system. Can I have your first and last name?",Verifying identity,legitimate
+11,6,"My first name is [REDACTED], last name is [REDACTED].",Providing details,legitimate
+11,7,"Thank you. Please hold while I check.",Investigating issue,legitimate
+11,8,"Okay.",Waiting,legitimate
+11,9,"I see here that this charge is related to Avira antivirus software. Have you previously used Avira?",Checking past activity,legitimate
+11,10,"No, I haven't.",Denying charge,legitimate
+11,11,"It looks like an unauthorized transaction. I will process the cancellation for you.",Providing resolution,legitimate
+11,12,"Oh, thank you. That's a relief.",Expressing relief,legitimate
+11,13,"You're welcome! Let us know if you need further help.",Closing conversation,legitimate
+12,1,"Hello, this is [Scammer Name]. How can I help you?",Initiating contact,scam
+12,2,"Yeah, I'm calling about an invoice we received for $398.",Reporting issue,scam response
+12,3,"Yes, I see the charge in our system. However, banks are closed today, so we will process the refund tomorrow.",Stalling tactic,scam
+12,4,"That's strange. My bank, Cyprus Credit Union, is open.",Questioning,scam response
+12,5,"We still need to process it on our end. Meanwhile, can you log into your online banking to verify the charge?",Requesting login,scam
+12,6,"Why do I need to do that? Shouldn't you be able to cancel it directly?",Expressing doubt,scam response
+12,7,"It's just a verification step to ensure your refund is processed correctly.",Applying pressure,scam
+12,8,"I don't feel comfortable doing that. I'll call my bank directly.",Avoiding scam,scam response
+12,9,"Sir, if you don't act now, the charge may go through permanently.",Creating urgency,scam
+12,10,"I'm not falling for this. Goodbye.",Ending call,scam response
+13,1,"Thank you for calling PayPal. How can I help you?",Initiating support,legitimate
+13,2,"Hi, I finally got a chance to call you. I have a bill from PayPal I need to take care of.",Reporting issue,legitimate
+13,3,"What bill did you receive, sir?",Investigating issue,legitimate
+13,4,"Um, it's for Bitcoin. I thought I had cleared that already. I returned my Bitcoin six months ago.",Explaining concern,legitimate
+13,5,"I see. Could you provide your invoice number or order number?",Verifying details,legitimate
+13,6,"Yeah, it's 568-685.",Providing information,legitimate
+13,7,"Thank you. May I have your first and last name, please?",Identity verification,legitimate
+13,8,"Sure, it's [REDACTED].",Providing details,legitimate
+13,9,"I see that this charge is linked to a prior transaction. Let me verify the details and check if this can be resolved.",Investigating issue,legitimate
+13,10,"Okay, thank you.",Waiting,legitimate
+13,11,"Sir, I confirm that the Bitcoin was returned, but there was a processing delay. The charge has now been canceled.",Providing resolution,legitimate
+13,12,"Oh, great! I appreciate your help.",Expressing gratitude,legitimate
+13,13,"You're welcome! Let us know if you need anything else.",Closing conversation,legitimate
+14,1,"Thanks for getting connected to McAfee. This is [Scammer Name]. How may I help you?",Initiating contact,scam
+14,2,"Hi, it's [User Name]. How are you doing today?",Building trust,scam response
+14,3,"Yes, ma'am. Are you in front of your computer right now?",Requesting access,scam
+14,4,"Yes, I just turned it on. I got home from lunch five minutes ago.",Following instructions,scam response
+14,5,"Alright, once you see the home screen, let me know.",Providing fake support,scam
+14,6,"Okay.",Waiting,scam response
+14,7,"Now, I want you to close your email and open Google Chrome.",Instructing user,scam
+14,8,"Alright, it's open.",Following instructions,scam response
+14,9,"Now, type in this website to download a security tool for verification.",Requesting software installation,scam
+14,10,"Wait, why do I need a tool?",Expressing doubt,scam response
+14,11,"This is necessary to remove the virus that caused your security issue.",Providing fake justification,scam
+14,12,"I don't think this is legitimate. I will check with McAfee directly.",Avoiding scam,scam response
+15,1,"Thank you for calling technical support. How can I help you?",Initiating support,legitimate
+15,2,"Hi, I'm getting a message on my screen that says access to this device has been blocked for security reasons.",Reporting issue,legitimate
+15,3,"Oh, were you doing something on the internet when this happened?",Gathering information,legitimate
+15,4,"Yes, I was looking at dress patterns and clicked on a link from a Facebook page.",Providing details,legitimate
+15,5,"I see. It's possible that you clicked on a malicious link. Let's try restarting your computer and running a security scan.",Providing resolution,legitimate
+15,6,"Okay, I'll do that now.",Following instructions,legitimate
+15,7,"Great! If you need further assistance, feel free to call us back.",Closing conversation,legitimate
+16,1,"Hello, thank you for calling Amazon support. How may I help you today?",Initiating support,scam
+16,2,"Yes, I received an email saying I was charged $734.99 for something on my Amazon account.",Reporting issue,scam response
+16,3,"Okay, sir. May I have your first and last name?",Requesting personal details,scam
+16,4,"It's [REDACTED].",Providing details,scam response
+16,5,"I see the charge. To cancel it, I need you to log into your bank and check your transactions.",Requesting sensitive action,scam
+16,6,"Wait, why do I need to do that?",Expressing doubt,scam response
+16,7,"We need to verify your identity before we process the refund.",Applying pressure,scam
+16,8,"That doesn't make sense. I'll contact Amazon directly.",Avoiding scam,scam response
+17,1,"Thank you for calling Norton support. How are you doing today?",Initiating support,scam
+17,2,"I'm doing fine. How are you?",Building trust,scam response
+17,3,"I'm fine, thank you. I believe you received an email confirmation for your Norton renewal?",Creating fake urgency,scam
+17,4,"Yes, but I don't remember signing up for Norton.",Expressing doubt,scam response
+17,5,"Would you like to cancel your subscription?",Leading question,scam
+17,6,"Yes, I want to cancel it.",Following instructions,scam response
+17,7,"I need you to open your computer and fill out a cancellation form.",Requesting computer access,scam
+17,8,"Wait, why do I need a form?",Expressing suspicion,scam response
+17,9,"It's a security measure to process the refund.",Manipulating victim,scam
+17,10,"I'll check my Norton account directly. Goodbye.",Avoiding scam,scam response
+18,1,"Hello, is this Amazon?",Initiating support,legitimate
+18,2,"Yes, ma'am. How can I help you today?",Responding to inquiry,legitimate
+18,3,"I had a message about something wrong with my account.",Reporting issue,legitimate
+18,4,"Alright, let me check that for you. May I have your name?",Identity verification,legitimate
+18,5,"It's [REDACTED].",Providing details,legitimate
+18,6,"I see no fraudulent activity on your account. The message you received might be a scam. Do not click on any links or provide personal information.",Providing resolution,legitimate
+18,7,"Oh, I see. Thank you for checking.",Expressing relief,legitimate
+18,8,"You're welcome! Let us know if you need any further assistance.",Closing conversation,legitimate
+19,1,"Thank you for calling Geek Squad support. How can I assist you?",Initiating support,scam
+19,2,"I received a message saying I'm being charged $299 for my computer services.",Reporting issue,scam response
+19,3,"Yes, this charge is for renewing your antivirus and security protection.",Explaining fake charge,scam
+19,4,"I don't recall subscribing to that.",Expressing doubt,scam response
+19,5,"These services were pre-installed on your computer and are set for auto-renewal.",Providing false information,scam
+19,6,"I'd like to cancel the charge.",Requesting cancellation,scam response
+19,7,"I will send you a cancellation form. Please open your browser and type in this website.",Requesting website access,scam
+19,8,"That sounds suspicious. I'll call Geek Squad directly.",Avoiding scam,scam response
+20,1,"Hello, sir. This is [ISP Name]. How can I help you?",Initiating contact,scam
+20,2,"Yeah, I got a call from this number about an internet issue.",Expressing concern,scam response
+20,3,"Yes, we are calling from your internet service provider. There was a technical failure last night, and some of your services are inactive.",Creating urgency,scam
+20,4,"My internet has been working fine all day.",Denying issue,scam response
+20,5,"Not all services are affected. However, if you don't update the settings, you may lose internet access soon. Are you in front of your computer?",Pressuring victim,scam
+20,6,"Why do I need to be in front of my computer?",Questioning legitimacy,scam response
+20,7,"We need to update your settings remotely to prevent disconnection.",Requesting access,scam
+20,8,"I'll call my ISP directly. Thanks.",Avoiding scam,scam response
+21,1,"Thank you for calling Norton support. This is David. How can I help you today?",Initiating support,scam
+21,2,"Hey David, can I talk to someone in accounting?",Requesting billing help,scam response
+21,3,"We are from the refund department. What is the issue?",Redirecting conversation,scam
+21,4,"I need to cancel an order. I got charged $594 for Xfinity.",Reporting fraudulent charge,scam response
+21,5,"Can you confirm your invoice number?",Requesting verification,scam
+21,6,"Okay, it's 123456.",Providing details,scam response
+21,7,"I see the charge in our system. Your Norton subscription auto-renewed yesterday.",Providing fake justification,scam
+21,8,"I don't even use Norton.",Denying charge,scam response
+21,9,"No worries, we will process a refund. Please open your computer and visit this link.",Requesting access,scam
+21,10,"I don't feel comfortable doing that. I'll contact Norton directly.",Avoiding scam,scam response
+22,1,"Thank you for calling Amazon. How can I help you?",Initiating support,legitimate
+22,2,"I need to speak with someone in the accounting department.",Requesting billing help,legitimate
+22,3,"Yes, you're speaking with the billing team. How can I assist?",Confirming department,legitimate
+22,4,"I received an email about a charge, but I didn't place an order.",Reporting unauthorized charge,legitimate
+22,5,"Can I have your name and email address to verify your account?",Verifying identity,legitimate
+22,6,"Sure, it's [REDACTED].",Providing details,legitimate
+22,7,"Thank you. I see no suspicious charges on your account. The email you received may be a phishing attempt. Do not click on any links.",Providing resolution,legitimate
+22,8,"Oh, I see. Thank you for checking.",Expressing relief,legitimate
+22,9,"You're welcome! Let us know if you need further assistance.",Closing conversation,legitimate
+23,1,"Thank you for calling Microsoft support. How can I help you?",Initiating support,scam
+23,2,"Hi, I got a message on my screen saying my computer is blocked.",Reporting issue,scam response
+23,3,"Were you doing anything online when this happened?",Gathering details,scam
+23,4,"Yes, I was on Wikipedia.",Providing context,scam response
+23,5,"It looks like your system has been infected with a Trojan. We need to remove it immediately.",Creating fear,scam
+23,6,"That sounds serious. What do I need to do?",Falling for scam,scam response
+23,7,"Please press the Windows key and R on your keyboard. Then type in a web address I will provide.",Requesting access,scam
+23,8,"Wait, why do I need to do that?",Questioning legitimacy,scam response
+23,9,"To install a security patch that will remove the virus.",Providing fake resolution,scam
+23,10,"I'll take my computer to a repair shop instead.",Avoiding scam,scam response
+24,1,"Thank you for calling Geek Squad. How can I help you?",Initiating support,legitimate
+24,2,"Hi, I received a message about a $299 charge for my computer services.",Reporting issue,legitimate
+24,3,"Let me check your account. Can I have your name and email address?",Verifying identity,legitimate
+24,4,"Sure, it's [REDACTED].",Providing details,legitimate
+24,5,"Thank you. I see that your subscription renewed automatically. Would you like to cancel?",Explaining charge,legitimate
+24,6,"Yes, I'd like to cancel.",Requesting cancellation,legitimate
+24,7,"No problem. I've canceled your subscription, and a refund will be processed in 3-5 business days.",Providing resolution,legitimate
+24,8,"Thank you! That's a relief.",Expressing gratitude,legitimate
+24,9,"You're welcome! Have a great day.",Closing conversation,legitimate
+25,1,"Hello, this is Tony. I got an email about a business opportunity?",Initiating contact,scam
+25,2,"Yes, thank you for calling. Where are you calling from?",Building trust,scam
+25,3,"Louisville, Kentucky. Who am I speaking with?",Providing location,scam response
+25,4,"This is [Scammer Name]. I have an investment opportunity for you.",Setting up scam,scam
+25,5,"Oh? I'm interested. What kind of opportunity?",Showing curiosity,scam response
+25,6,"I need a partner for a $150 million business venture.",Offering fake investment,scam
+25,7,"$150 million?! That sounds like a lot of money.",Expressing disbelief,scam response
+25,8,"Yes, but you need to act fast. Send me an email, and I'll send the details.",Creating urgency,scam
+25,9,"I'd rather discuss it over the phone. Emails aren't secure.",Questioning legitimacy,scam response
+25,10,"Don't worry, everything is safe. Just send the email, and we'll move forward.",Pressuring victim,scam
+25,11,"I think I'll pass. Thanks anyway.",Avoiding scam,scam response
+26,1,"Hi, yeah, I've got an email here about a laptop I didn't order. Can you help with that?",Reporting issue,legitimate
+26,2,"Yes, can you provide your order ID number, please?",Requesting verification,legitimate
+26,3,"Yeah, so I can see it's for a Microsoft Surface Pro. What do you want to know?",Providing details,legitimate
+26,4,"I will check your account. Please hold for a moment.",Investigating issue,legitimate
+26,5,"Okay, thanks.",Waiting,legitimate
+26,6,"I've checked your account, and there are no unauthorized purchases. This email looks like a phishing attempt. Do not click on any links.",Providing resolution,legitimate
+26,7,"Oh, good to know. I appreciate the help!",Expressing gratitude,legitimate
+26,8,"You're welcome! Let us know if you need anything else.",Closing conversation,legitimate
+27,1,"Hello, this is British Telecom technical department. We are informing you that your internet line will be terminated today.",Initiating contact,scam
+27,2,"Wait, what? Why is my internet being terminated?",Expressing concern,scam response
+27,3,"There is a technical issue on your line. To fix the problem, please press one to connect with BT support.",Creating urgency,scam
+27,4,"Okay, let me speak to someone.",Falling for scam,scam response
+27,5,"Thank you for your response. We are transferring you to a team manager for verification.",Redirecting victim,scam
+27,6,"Hello, yes, I had a call about my broadband being cut off.",Seeking clarification,scam response
+27,7,"Yes, sir. Your internet is at risk of disconnection. Please verify your details so we can restore the service.",Requesting personal information,scam
+27,8,"This sounds suspicious. I'll call BT directly.",Avoiding scam,scam response
+28,1,"Hello, this call is from Interpol. Your Austrian identity has been misused for fraudulent and illegal activity.",Initiating fear tactic,scam
+28,2,"What? That doesn't make sense. I don't even live in Austria.",Expressing disbelief,scam response
+28,3,"For more information, press one to speak with an officer.",Creating urgency,scam
+28,4,"How do I know this is real?",Questioning legitimacy,scam response
+28,5,"Sir, this is a serious matter. If you do not respond, legal action may be taken.",Threatening consequences,scam
+28,6,"I'll contact my local authorities instead. Goodbye.",Avoiding scam,scam response
+29,1,"Hi, this is Amazon customer service. We have detected a recent order AMZ-0987 for an iPhone 11 Pro on your account.",Initiating contact,scam
+29,2,"Wait, what? I didn't order an iPhone 11 Pro.",Expressing confusion,scam response
+29,3,"This purchase, amounting to $1,499, was billed to your card. We noticed suspicious activity and put a hold on this transaction.",Creating urgency,scam
+29,4,"Okay, what do I need to do?",Falling for scam,scam response
+29,5,"To report this, please press one now. To cancel, press two.",Providing fake resolution options,scam
+29,6,"I don't trust this. I will check my Amazon account directly.",Avoiding scam,scam response
+29,7,"If you don't act now, the transaction may be completed.",Applying pressure,scam
+29,8,"No thanks, I'll handle this myself.",Ending call,scam response
+
+

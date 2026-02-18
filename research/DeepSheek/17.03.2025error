@@ -1,0 +1,163 @@
+---------------------------------------------------------------------------
+OutOfMemoryError                          Traceback (most recent call last)
+Cell In[44], line 29
+     21 trainer = Trainer(
+     22     model=model,
+     23     args=training_args,
+     24     train_dataset=tokenized_train,  # Your tokenized training dataset
+     25     eval_dataset=tokenized_val,     # Your tokenized validation dataset
+     26 )
+     28 # Fine-tune the model
+---> 29 trainer.train()
+     31 # Save the fine-tuned model
+     32 model.save_pretrained("./fine_tuned_deepseek_distill")
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/transformers/trainer.py:2251, in Trainer.train(self, resume_from_checkpoint, trial, ignore_keys_for_eval, **kwargs)
+   2249         hf_hub_utils.enable_progress_bars()
+   2250 else:
+-> 2251     return inner_training_loop(
+   2252         args=args,
+   2253         resume_from_checkpoint=resume_from_checkpoint,
+   2254         trial=trial,
+   2255         ignore_keys_for_eval=ignore_keys_for_eval,
+   2256     )
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/transformers/trainer.py:2562, in Trainer._inner_training_loop(self, batch_size, args, resume_from_checkpoint, trial, ignore_keys_for_eval)
+   2555 context = (
+   2556     functools.partial(self.accelerator.no_sync, model=model)
+   2557     if i != len(batch_samples) - 1
+   2558     and self.accelerator.distributed_type != DistributedType.DEEPSPEED
+   2559     else contextlib.nullcontext
+   2560 )
+   2561 with context():
+-> 2562     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+   2564 if (
+   2565     args.logging_nan_inf_filter
+   2566     and not is_torch_xla_available()
+   2567     and (torch.isnan(tr_loss_step) or torch.isinf(tr_loss_step))
+   2568 ):
+   2569     # if loss is nan or inf simply add the average of previous logged losses
+   2570     tr_loss = tr_loss + tr_loss / (1 + self.state.global_step - self._globalstep_last_logged)
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/transformers/trainer.py:3724, in Trainer.training_step(self, model, inputs, num_items_in_batch)
+   3721     return loss_mb.reduce_mean().detach().to(self.args.device)
+   3723 with self.compute_loss_context_manager():
+-> 3724     loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+   3726 del inputs
+   3727 if (
+   3728     self.args.torch_empty_cache_steps is not None
+   3729     and self.state.global_step % self.args.torch_empty_cache_steps == 0
+   3730 ):
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/transformers/trainer.py:3789, in Trainer.compute_loss(self, model, inputs, return_outputs, num_items_in_batch)
+   3787         loss_kwargs["num_items_in_batch"] = num_items_in_batch
+   3788     inputs = {**inputs, **loss_kwargs}
+-> 3789 outputs = model(**inputs)
+   3790 # Save past state if it exists
+   3791 # TODO: this needs to be fixed and made cleaner later.
+   3792 if self.args.past_index >= 0:
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/torch/nn/modules/module.py:1739, in Module._wrapped_call_impl(self, *args, **kwargs)
+   1737     return self._compiled_call_impl(*args, **kwargs)  # type: ignore[misc]
+   1738 else:
+-> 1739     return self._call_impl(*args, **kwargs)
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/torch/nn/modules/module.py:1750, in Module._call_impl(self, *args, **kwargs)
+   1745 # If we don't have any hooks, we want to skip the rest of the logic in
+   1746 # this function, and just call forward.
+   1747 if not (self._backward_hooks or self._backward_pre_hooks or self._forward_hooks or self._forward_pre_hooks
+   1748         or _global_backward_pre_hooks or _global_backward_hooks
+   1749         or _global_forward_hooks or _global_forward_pre_hooks):
+-> 1750     return forward_call(*args, **kwargs)
+   1752 result = None
+   1753 called_always_called_hooks = set()
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/accelerate/utils/operations.py:819, in convert_outputs_to_fp32.<locals>.forward(*args, **kwargs)
+    818 def forward(*args, **kwargs):
+--> 819     return model_forward(*args, **kwargs)
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/accelerate/utils/operations.py:807, in ConvertOutputsToFp32.__call__(self, *args, **kwargs)
+    806 def __call__(self, *args, **kwargs):
+--> 807     return convert_to_fp32(self.model_forward(*args, **kwargs))
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/torch/amp/autocast_mode.py:44, in autocast_decorator.<locals>.decorate_autocast(*args, **kwargs)
+     41 @functools.wraps(func)
+     42 def decorate_autocast(*args, **kwargs):
+     43     with autocast_instance:
+---> 44         return func(*args, **kwargs)
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/accelerate/utils/operations.py:819, in convert_outputs_to_fp32.<locals>.forward(*args, **kwargs)
+    818 def forward(*args, **kwargs):
+--> 819     return model_forward(*args, **kwargs)
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/accelerate/utils/operations.py:807, in ConvertOutputsToFp32.__call__(self, *args, **kwargs)
+    806 def __call__(self, *args, **kwargs):
+--> 807     return convert_to_fp32(self.model_forward(*args, **kwargs))
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/torch/amp/autocast_mode.py:44, in autocast_decorator.<locals>.decorate_autocast(*args, **kwargs)
+     41 @functools.wraps(func)
+     42 def decorate_autocast(*args, **kwargs):
+     43     with autocast_instance:
+---> 44         return func(*args, **kwargs)
+
+    [... skipping similar frames: ConvertOutputsToFp32.__call__ at line 807 (2 times), convert_outputs_to_fp32.<locals>.forward at line 819 (2 times), autocast_decorator.<locals>.decorate_autocast at line 44 (1 times)]
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/torch/amp/autocast_mode.py:44, in autocast_decorator.<locals>.decorate_autocast(*args, **kwargs)
+     41 @functools.wraps(func)
+     42 def decorate_autocast(*args, **kwargs):
+     43     with autocast_instance:
+---> 44         return func(*args, **kwargs)
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/accelerate/utils/operations.py:819, in convert_outputs_to_fp32.<locals>.forward(*args, **kwargs)
+    818 def forward(*args, **kwargs):
+--> 819     return model_forward(*args, **kwargs)
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/accelerate/utils/operations.py:807, in ConvertOutputsToFp32.__call__(self, *args, **kwargs)
+    806 def __call__(self, *args, **kwargs):
+--> 807     return convert_to_fp32(self.model_forward(*args, **kwargs))
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/accelerate/utils/operations.py:786, in convert_to_fp32(tensor)
+    780 def _is_fp16_bf16_tensor(tensor):
+    781     return (is_torch_tensor(tensor) or hasattr(tensor, "dtype")) and tensor.dtype in (
+    782         torch.float16,
+    783         torch.bfloat16,
+    784     )
+--> 786 return recursively_apply(_convert_to_fp32, tensor, test_type=_is_fp16_bf16_tensor)
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/accelerate/utils/operations.py:119, in recursively_apply(func, data, test_type, error_on_other_type, *args, **kwargs)
+    107     return honor_type(
+    108         data,
+    109         (
+   (...)    114         ),
+    115     )
+    116 elif isinstance(data, Mapping):
+    117     return type(data)(
+    118         {
+--> 119             k: recursively_apply(
+    120                 func, v, *args, test_type=test_type, error_on_other_type=error_on_other_type, **kwargs
+    121             )
+    122             for k, v in data.items()
+    123         }
+    124     )
+    125 elif test_type(data):
+    126     return func(data, *args, **kwargs)
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/accelerate/utils/operations.py:126, in recursively_apply(func, data, test_type, error_on_other_type, *args, **kwargs)
+    117     return type(data)(
+    118         {
+    119             k: recursively_apply(
+   (...)    123         }
+    124     )
+    125 elif test_type(data):
+--> 126     return func(data, *args, **kwargs)
+    127 elif error_on_other_type:
+    128     raise TypeError(
+    129         f"Unsupported types ({type(data)}) passed to `{func.__name__}`. Only nested list/tuple/dicts of "
+    130         f"objects that are valid for `{test_type.__name__}` should be passed."
+    131     )
+
+File ~/anaconda3/envs/voipvishing/lib/python3.13/site-packages/accelerate/utils/operations.py:778, in convert_to_fp32.<locals>._convert_to_fp32(tensor)
+    777 def _convert_to_fp32(tensor):
+--> 778     return tensor.float()
+
+OutOfMemoryError: CUDA out of memory. Tried to allocate 594.00 MiB. GPU 0 has a total capacity of 15.69 GiB of which 288.62 MiB is free. Including non-PyTorch memory, this process has 15.35 GiB memory in use. Of the allocated memory 14.44 GiB is allocated by PyTorch, and 668.73 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

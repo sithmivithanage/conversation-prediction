@@ -1,0 +1,19 @@
+Caller: Hello, I’m calling from your bank regarding an urgent matter.
+Callee: That sounds serious. What’s going on with my account?
+Caller: We’ve noticed some suspicious activity. Could you confirm your account number?
+Callee: Sure, let me grab it for you.
+
+Caller: Hi, this is an automated message informing you that your credit card has been locked.
+Callee: This is alarming. What do I need to do?
+Caller: Please provide your 16-digit card number immediately to unlock it.
+Callee: I’m not sure if that’s safe. Can I call the bank directly?
+
+Caller: Good afternoon, are you available to discuss our new promotion?
+Callee: I might be. What kind of promotion is it?
+Caller: We’re offering a 20% discount on our insurance plan.
+Callee: Interesting, I’d like more details before I decide.
+
+Caller: Hello, this is your electricity company. Your bill is overdue by $100.
+Callee: I’m surprised. I thought I had already paid it.
+Caller: To avoid disconnection, please provide your banking details now.
+Callee: I should verify this via the official website. Can you send me an email instead?
